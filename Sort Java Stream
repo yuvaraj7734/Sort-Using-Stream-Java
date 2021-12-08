@@ -1,0 +1,67 @@
+import java.util.*;
+ 
+class Yuva{
+ 
+// Function to sort a stream of integers
+static void Sort(Vector<Integer> ans, int num)
+{
+     
+    // Stores the position of
+    // array elements
+    int pos = -1;
+ 
+    // Traverse through the array
+    for(int i = 0; i < ans.size(); i++)
+    {
+         
+        // If any element is found to be
+        // greater than the current element
+        if (ans.get(i) >= num)
+        {
+            pos = i;
+            break;
+        }
+    }
+ 
+    // If an element > num is not present
+    if (pos == -1)
+        ans.add(num);
+ 
+    // Otherwise, place the number
+    // at its right position
+    else
+        ans.add(pos, num);
+}
+ 
+// Function to print the sorted stream of integers
+static void sortStream(int arr[], int N)
+{
+     
+    // Stores the sorted stream of integers
+    Vector<Integer> ans = new Vector<Integer>();
+ 
+    // Traverse the array
+    for(int i = 0; i < N; i++)
+    {
+         
+        // Function Call
+        Sort(ans, arr[i]);
+ 
+        // Print the array after
+        // every insertion
+        for(int j = 0; j < ans.size(); j++)
+        {
+            System.out.print(ans.get(j) + " ");
+        }
+        System.out.println();
+    }
+}
+ 
+public static void main(String[] args)
+{
+    int arr[] = { 4, 1, 7, 6, 2 };
+    int N = arr.length;
+ 
+    sortStream(arr, N);
+}
+}
